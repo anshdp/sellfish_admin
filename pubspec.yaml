@@ -1,0 +1,41 @@
+name: sellfish
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  badges: ^2.0.3
+  bloc: ^8.0.2
+  bottom_navy_bar: ^6.0.0
+  # cloud_firestore: ^3.1.10
+  cloud_firestore: ^3.1.10
+  firebase: ^9.0.2
+  firebase_auth: ^3.3.7
+  firebase_core: ^1.12.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_localizations:
+    sdk: flutter
+  font_awesome_flutter: ^9.2.0
+  google_fonts: ^2.3.1
+  http: ^0.13.4
+  intl: ^0.17.0
+  path: ^1.8.0
+  syncfusion_flutter_charts: ^20.1.59
+
+dev_dependencies:
+  bloc_test: ^9.0.2
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.2.0
+  very_good_analysis: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/

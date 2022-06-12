@@ -1,0 +1,31 @@
+{
+    "project_info": {
+        "project_number": "831862597244",
+        "project_id": "sellfish-007",
+        "storage_bucket": "sellfish-007.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:831862597244:android:e133ab59a37bedc6ab8bf9",
+            "android_client_info": {
+                "package_name": "com.sellfish.sellfish.dev"
+            }
+        },
+        "oauth_client": [{
+            "client_id": "831862597244-tjnv5efga03tma1atkuju59okj21nc0c.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyDxvEgH9snwm-tzGuYZUKbqmD3REyvPh-U"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "831862597244-tjnv5efga03tma1atkuju59okj21nc0c.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}
