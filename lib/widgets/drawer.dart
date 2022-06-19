@@ -15,7 +15,7 @@ class AdminDrawer extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              color: Color.fromARGB(255, 241, 238, 225),
+              color: const Color.fromARGB(255, 241, 238, 225),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 8,
               child: const Padding(
@@ -35,8 +35,8 @@ class AdminDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
               onTap: () {
                 // Navigator.of(context).push(MaterialPageRoute<MaterialPageRoute>(
                 //     builder: (context) => Settings()));

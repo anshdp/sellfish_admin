@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state is NavigateToHome) {
-            Navigator.pushNamed(context, RouteConstants.homeRoute);
+            Navigator.pushReplacementNamed(context, RouteConstants.homeRoute);
           }
         },
         builder: (context, state) {
@@ -33,14 +33,15 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 200, horizontal: 30),
+                      vertical: 200,
+                      horizontal: 30,
+                    ),
                     color: Colors.white,
                     width: double.infinity,
                     child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
                               'SellFish',

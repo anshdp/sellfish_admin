@@ -4,6 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:sellfish/constants/db_collection_constants.dart';
+import 'package:sellfish/constants/db_field_constants.dart';
+import 'package:sellfish/helper/helper_functions.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -12,8 +15,6 @@ late String errorMessage;
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final FirebaseAuth _authentication = FirebaseAuth.instance;
-
-  CollectionReference users = FirebaseFirestore.instance.collection('Users');
 
   LoginBloc() : super(LoginInitial()) {
     on<LoginEvent>((event, emit) async {
@@ -24,7 +25,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             email: event.email,
             password: event.password,
           );
-          print(userCredential.user!.uid);
+
+          final id = userCredential.user!.uid;
+
+          final collection =
+              FirebaseFirestore.instance.collection(adminCollection);
+
+          final docSnapshot = await collection.doc(id).get();
+
+          if (docSnapshot.exists) {
+            final data = docSnapshot.data();
+            await HelperClass().setAdminData(
+              id,
+              userCredential.user!.email.toString(),
+              data![adminNameField].toString(),
+              data[adminTypeField] as String,
+              true,
+              data[adminPhoneNoField] as String,
+            );
+          }
 
           emit(NavigateToHome());
         } on FirebaseAuthException catch (error) {
@@ -53,3 +72,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
   }
 }
+
+
+
+
+
+  // CollectionReference adminData =
+  //     FirebaseFirestore.instance.collection(adminCollection);
+
+
+// await adminData.doc(userCredential.user!.uid).set(
+          //   {
+          //     userNameField: 'admin123',
+          //     emailField: userCredential.user!.email,
+          //     phoneNoField: '9526071167',
+          //     userIdField: userCredential.user!.uid,
+          //     userTypeField: 'admin',
+          //   },
+          // );

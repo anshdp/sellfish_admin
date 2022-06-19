@@ -9,7 +9,7 @@ import 'package:sellfish/status/app_status.dart';
 import 'package:sellfish/widgets/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: <Widget>[
                     const AdminDashboard(),
                     Status(),
-                    const Text('settings'),
+                    const Text('Done'),
                     Profile(),
                   ],
                 ),

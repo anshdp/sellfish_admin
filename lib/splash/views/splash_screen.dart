@@ -10,33 +10,32 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => _splashBloc..add(SplashStartEvent()),
-      child: Scaffold(
-        body: BlocConsumer<SplashBloc, SplashState>(
-          listener: (context, state) {
-            if (state is SplashNavigateToHome) {
-              Navigator.pushNamed(context, RouteConstants.loginRoute);
-            }
-          },
-          builder: (context, state) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'SellFish',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.greenAccent),
+      child: BlocListener<SplashBloc, SplashState>(
+        listener: (context, state) {
+          if (state is SplashNavigateToLogin) {
+            Navigator.pushReplacementNamed(context, RouteConstants.loginRoute);
+          } else if (state is SplashNavigateToHome) {
+            Navigator.pushReplacementNamed(context, RouteConstants.homeRoute);
+          } else {
+            Navigator.pushReplacementNamed(context, RouteConstants.loginRoute);
+          }
+        },
+        child: Scaffold(
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'SellFish',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.greenAccent,
                   ),
-                  Image.asset(
-                    'assets/images/splash_image.png',
-                    width: 300,
-                  ),
-                ],
-              ),
-            );
-          },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
-import 'package:sellfish/login/bloc/login_bloc.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
