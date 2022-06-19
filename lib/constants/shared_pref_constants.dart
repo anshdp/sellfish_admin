@@ -3,3 +3,4 @@ String emailPref = 'email';
 String typePref = 'type';
 String userNamePref = 'userName';
 String isLoggedInPref = 'isLoggedIn';
+String phoneNoPref = 'phone';

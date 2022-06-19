@@ -2,7 +2,7 @@ import 'package:sellfish/constants/shared_pref_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 bool? isLogin;
-String? Id, emailId, name, adminType;
+String? Id, emailId, name, adminType, phone;
 
 class HelperClass {
   Future getAdminData() async {
@@ -12,6 +12,7 @@ class HelperClass {
     Id = sharedPreferences.getString(adminIdPref);
     emailId = sharedPreferences.getString(emailPref);
     name = sharedPreferences.getString(userNamePref);
+    phone = sharedPreferences.getString(phoneNoPref);
   }
 
   Future setAdminData(
@@ -31,6 +32,8 @@ class HelperClass {
     await preference.setString(typePref, type);
 
     await preference.setString(userNamePref, userName);
+
+    await preference.setString(phoneNoPref, phoneNo);
 
     await preference.setBool(isLoggedInPref, isLogin);
   }

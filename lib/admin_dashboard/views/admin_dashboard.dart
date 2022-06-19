@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sellfish/admin_dashboard/admin_dashboard.dart';
+import 'package:sellfish/helper/helper_functions.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({Key? key}) : super(key: key);
@@ -24,7 +25,15 @@ class _AdminDashboardState extends State<AdminDashboard> {
     fontSize: 25,
   );
 
+  DateTime? date;
+
   @override
+  void initState() {
+    super.initState();
+    final now = DateTime.now();
+    date = DateTime(now.year, now.month, now.day);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -37,14 +46,14 @@ class _AdminDashboardState extends State<AdminDashboard> {
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('WED, 23 MARCH', style: greyFonts),
+                  Text(date.toString().substring(0, 10), style: greyFonts),
                   Text(
-                    'Hi, ',
+                    'Hi, $name',
                     style: GoogleFonts.fredokaOne(
                       fontSize: 35,
                     ),
                   ),
-                  const Text('test')
+                  Text('$emailId')
                 ],
               ),
               trailing: const Padding(
